@@ -1,6 +1,6 @@
 import mongoose, { Schema, Connection, ConnectOptions } from "mongoose";
 import { IMedia } from "../models/IMedia";
-import { rejects } from "assert";
+import {writeFileSync} from 'fs';
 
 const dataSchema = new Schema<IMedia>({
   uuid: String,
@@ -50,11 +50,11 @@ const mongoSave = async (db: Connection, data: IMedia) => {
 
 const mongoView = async (db: Connection) => {
   let start = performance.now();
-  const filteredData = await DataModel.find().limit(5);
+  const filteredData = await DataModel.find();
   let timeTaken = performance.now() - start;
   console.log('View time taken: ', timeTaken);
   console.log('Record count ', filteredData.length);
-  // console.log("Filtered Data:", filteredData); 
+  writeFileSync('data.txt', JSON.stringify(filteredData));
   db.close();
 };
 
