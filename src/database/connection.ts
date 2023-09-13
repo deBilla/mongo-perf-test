@@ -50,7 +50,7 @@ const mongoSave = async (db: Connection, data: IMedia) => {
 
 const mongoView = async (db: Connection) => {
   let start = performance.now();
-  const filteredData = await DataModel.find();
+  const filteredData = await DataModel.find().limit(5);
   let timeTaken = performance.now() - start;
   console.log('View time taken: ', timeTaken);
   console.log('Record count ', filteredData.length);
