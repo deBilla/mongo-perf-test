@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import { mongoConnect, mongoSave, mongoView } from "./database/connection2";
+import { mongoConnect, mongoSave, mongoView } from "./database/connection";
 
 dotenv.config();
 const sampleMediaItem: any = {
