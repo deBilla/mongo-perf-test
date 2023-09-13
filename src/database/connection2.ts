@@ -45,7 +45,7 @@ const mongoSave = async (db: Connection, data: IMedia) => {
   let timeTaken = performance.now() - start;
   console.log('Save time taken: ', timeTaken);
   await newData.save();
-  db.close();
+//   db.close();
 };
 
 const mongoView = async (db: Connection) => {

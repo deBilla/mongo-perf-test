@@ -17,7 +17,14 @@ const sampleMediaItem: any = {
 
 const main = async () => {
   const mongoConn: any = await mongoConnect();
-  // mongoSave(mongoConn, sampleMediaItem);
+//   const saveQueue = [];
+  
+//   for (let i =0; i < 2480; i++) {
+//     saveQueue.push(mongoSave(mongoConn, sampleMediaItem));
+//   }
+
+//   await Promise.all(saveQueue);
+  
   mongoView(mongoConn);
 };
 
