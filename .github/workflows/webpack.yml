@@ -9,6 +9,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment:
+      name: test
+    env:
+      DB_USER: ${{ secrets.DB_USER }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
     strategy:
       matrix:
@@ -21,14 +26,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-
-      - name: Set up Environment Variables
-        env:
-          DB_USER: ${{ secrets.DB_USER }}
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-        run: |
-          echo "DB_USER=${DB_USER}" >> $GITHUB_ENV
-          echo "DB_PASSWORD=${DB_PASSWORD}" >> $GITHUB_ENV
 
       - name: Build
         run: |
