@@ -54,7 +54,7 @@ const mongoView = async (db: Connection) => {
   let timeTaken = performance.now() - start;
   console.log('View time taken: ', timeTaken);
   console.log('Record count ', filteredData.length);
-  // console.log("Filtered Data:", filteredData);
+  // console.log("Filtered Data:", filteredData); 
   db.close();
 };
 
