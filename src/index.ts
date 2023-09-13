@@ -17,7 +17,7 @@ const sampleMediaItem: any = {
 
 const main = async () => {
   const mongoConn: any = await mongoConnect();
-  mongoSave(mongoConn, sampleMediaItem);
+  // mongoSave(mongoConn, sampleMediaItem);
   mongoView(mongoConn);
 };
 
